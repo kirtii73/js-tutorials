@@ -1,0 +1,27 @@
+function salutations(users) {
+if(users.gender ==="male"){
+  return "Mr."+ users.name ;}
+  else{
+  return "Mrs."+ users.name ;  
+
+  }
+}
+
+let user = {
+  name: "John",
+  age: 30,
+  gender: "male"
+};
+
+function greet(user1){
+  console.log("Hello " + salutations(user1) + " You are " + user1.age + " years old")
+  
+}
+greet(user);
+
+let user2 = {
+  name: "Jane",
+  age: 25,
+  gender: "female"
+}
+greet(user2)
