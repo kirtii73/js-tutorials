@@ -1,0 +1,21 @@
+
+function arr(user) {
+  let arr2 = [];
+  for (let i = 0; i < user.length; i++) {
+
+    if (user[i].gender === "male" && user[i].age > 18) {
+      arr2.push(user[i].name); 
+    }
+  }
+  return arr2;
+}
+
+let users = [
+  { name: "Mary", age: 18, gender: "female" },
+  { name: "John", age: 20, gender: "male" },
+  { name: "Bob", age: 20, gender: "male" },
+  { name: "Erica", age: 20, gender: "female" },
+];
+
+console.log(arr(users));
+
