@@ -1,4 +1,4 @@
-
+<script>
 function arr(user) {
   let arr2 = [];
   for (let i = 0; i < user.length; i++) {
@@ -19,3 +19,4 @@ let users = [
 
 console.log(arr(users));
 
+</script>
