@@ -1,0 +1,63 @@
+// Tic-Tac-Toe Game Implementation
+const board = [
+  ['', '', ''],
+  ['', '', ''],
+  ['', '', '']
+];
+
+let currentPlayer = 'X';
+let moves = 0;
+
+// Function to print the current board
+function printBoard() {
+  console.log(board.map(row => row.join(' | ')).join('\n---------\n'));
+}
+
+// Function to check if a player has won
+function checkWinner(player) {
+  // Check rows, columns, and diagonals
+  for (let i = 0; i < 3; i++) {
+    if (board[i].every(cell => cell === player)) return true;
+    if (board.every(row => row[i] === player)) return true;
+  }
+  if (board[0][0] === player && board[1][1] === player && board[2][2] === player) return true;
+  if (board[0][2] === player && board[1][1] === player && board[2][0] === player) return true;
+  return false;
+}
+
+// Function to check for a tie
+function checkTie() {
+  return moves === 9;
+}
+
+// Function to play a move
+function playMove(row, col) {
+  if (board[row][col] !== '') {
+    console.log('Cell already taken. Try another move.');
+    return;
+  }
+  
+  board[row][col] = currentPlayer;
+  moves++;
+  printBoard();
+
+  if (checkWinner(currentPlayer)) {
+    console.log(`Player ${currentPlayer} wins!`);
+    return;
+  }
+
+  if (checkTie()) {
+    console.log('The game is a tie!');
+    return;
+  }
+
+  currentPlayer = currentPlayer === 'X' ? 'O' : 'X'; // Switch players
+}
+
+// Game simulation
+printBoard();
+playMove(0, 0); // Player X
+playMove(0, 1); // Player O
+playMove(1, 1); // Player X
+playMove(1, 0); // Player O
+playMove(2, 2); // Player X wins
